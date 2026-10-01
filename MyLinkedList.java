@@ -389,8 +389,16 @@ public class MyLinkedList<E> implements MyList<E> {
   //     returns element
 
   public E set(int index, E e) {
-    System.out.println("You must add the logic for method: set");
-    return null;
+    //System.out.println("You must add the logic for method: set");
+    //return null;
+    if (index < 0 || index >= size)
+      throw new IndexOutOfBoundsException("Index out of bounds");
+    Node<E> temp = head;
+    for (int i = 0; i < index; i++)
+      temp = temp.next;
+    E oldElement = temp.element;
+    temp.element = e;
+    return oldElement;
   }
   
 
