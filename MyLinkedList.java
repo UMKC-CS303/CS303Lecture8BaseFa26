@@ -332,18 +332,19 @@ public class MyLinkedList<E> implements MyList<E> {
   //PRE: accepts an object
   //POST:returns the last index if found or -1 if not 
   public int lastIndexOf(E e) {
-    //System.out.println("You must add the logic for method: lastIndexOf");
-    if (!contains(e))
-        return -1;
-    //make a list to hold indices of e
-    MyLinkedList<Integer> listOfIndex = new MyLinkedList<>();
+    if (e == null || size == 0)
+      return -1;
+    int index = -1, now = 0;
     Node<E> temp = head;
-    for (int i = 0; temp.next != null; i++){
-      if (temp.element.equals(e))
-        listOfIndex.add(i);
+    while (temp != null){
+      if (temp.element.equals(e)){
+        index = now;
+      }
       temp = temp.next;
+      now++;
     }
-    return listOfIndex.getLast();
+    return index;
+    }
     /*
     if (e == null || size == 0)
       return -1;
@@ -358,7 +359,7 @@ public class MyLinkedList<E> implements MyList<E> {
     }
     return index;
     */
-  }
+  
 
   @Override 
   //Replace the element at the specified position with new element
