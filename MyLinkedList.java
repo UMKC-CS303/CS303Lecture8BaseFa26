@@ -344,21 +344,21 @@ public class MyLinkedList<E> implements MyList<E> {
       temp = temp.next;
     }
     return listOfIndex.getLast();
-    
-
+   
+    // input my code
     if (e == null || size == 0)
       return -1;
-    int index = -1, 
-           now = 0;
+    int matchIndex = -1, 
+           index = 0;
     Node<E> temp = head;
     while (temp != null){
       if (temp.element.equals(e)){
-        index = now;
+        matchIndex = index;
       }
       temp = temp.next;
-      now++;
+      index++;
     }
-    return index;
+    return matchIndex;
   
   }
 
