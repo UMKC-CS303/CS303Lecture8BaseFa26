@@ -313,8 +313,14 @@ public class MyLinkedList<E> implements MyList<E> {
   //POST:verify the index & return null if invalid
   //     return the element 
   public E get(int index) {
-    System.out.println("You must add the logic for method: get");
-    return null;
+    //System.out.println("You must add the logic for method: get");
+    if (index < 0 || index >= size)
+      return null;
+    Node<E> current = head;
+    for (int i = 0; i < index; i++){
+      current = current.next;
+    }
+    return current.element;
   }
 
   @Override 
